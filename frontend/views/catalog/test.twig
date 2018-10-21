@@ -1,0 +1,48 @@
+<p>{{ products }}</p>
+{{#
+{{use(fronted\components\CatalogMenuWidget)}}
+{{use(yii\helpers\Url)}}
+
+<div class="catalog-wrapper">
+    <div class="catalog-head">
+        {{catalog_menu_widget_widget()}}
+    </div>
+    <div class="catalog-content">
+        <div class="catalog-title">
+            {{ $category_name }}({{ $count }})
+        </div>
+        <hr>
+        <div class="catalog-item-container">
+
+            {% for  prod in products %}
+                <div class="catalog-item">
+                    <div class="item-name">
+                        <a class="catalog-item-text" href="{{ path(
+                                ['catalog/product'],
+                                {'prod':  prod.name_translit,
+                                'cat':    prod.categories.cat_name_translit }
+                        ) }}">{{ $prod['name'] }}</a>
+                    </div>
+                    <a href="{{ path(
+                                ['catalog/product'],
+                                {'prod' : prod.name_translit,
+                                'cat'  : prod.categories.cat_name_translit}
+                    ) }}" class="catalog-image-src">
+                        <div class="catalog-item-image" style="background-image: url( '/frontend/web/img/catalog/ {{ prod.image }} );">
+                        </div>
+                    </a>
+                    <div class="price-block">
+                        {% if prop.currency == 'rub' %}
+                            <span class="catalog-item-text">{{ prod.price }} &nbsp;&#8381;</span>
+                        <? endif ?>
+                    </div>
+                    <div class="catalog-item-category">
+                        <div class="catalog-item-text">Категория: </div>
+                        {{ prod.categories.name }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+#}}

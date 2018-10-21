@@ -1,0 +1,34 @@
+/* widget categories */
+.catalog-sections{
+    display: flex;
+    flex-direction: column;
+}
+.section-item {
+    padding: 5px !important;
+    border: none !important;
+    width: 300px;
+    overflow: inherit !important;
+    /*margin-left: 10px !important;*/
+}
+.section-item h3.ui-state-active{
+    /*background-color: black !important;*/
+}
+.catalog-sections .ui-state-active{
+    /*background-color: yellow !important;*/
+    border: 2px solid black !important;
+}
+.section-item h3 {
+    background-color: #1abc9c !important;
+}
+.section-item a{
+    color: white !important;
+    font-size: 20px;
+}
+
+/* ./widget categories */
+.single-sidebar .section-item h3{
+    display: flex;
+}
+/* widget categories detail */
+
+/* ./widget categories detail */
