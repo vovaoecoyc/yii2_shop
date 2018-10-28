@@ -14,7 +14,7 @@ use yii\widgets\LinkPager;
     <? } ?>
         <div class="col-md-4 col-sm-6">
             <div class="single-shop-product">
-                <div class="product-upper" style="background-image: url(<?= Yii::getAlias('@web/img/catalog/') . $prod['image']?>);">
+                <div class="product-upper" style="background-image: url(<?= Yii::getAlias('@front/img/catalog/') . $prod['image']?>);">
                     <a class="src-image" href="<?= Url::to([
                         'catalog/product',
                         'prod' => $prod['name_translit'],

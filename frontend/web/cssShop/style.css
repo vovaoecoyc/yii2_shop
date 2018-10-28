@@ -666,9 +666,9 @@ input[type="submit"]:hover, button[type=submit]:hover {background-color: #222}
     width: 100%;
     height: 460px;
     margin-bottom: 20px;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 .product-gallery {
     margin-bottom: 25px;
@@ -1077,6 +1077,17 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
 /* ./catalog  */
 
 /* search */
+.search-wrapper .single-product-area{
+    padding-top: 0;
+}
+.search-wrapper .single-product-area .container{
+    margin: auto;
+}
+.search-wrapper .single-sidebar{
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-bottom: 10px;
+}
 .search-result{
     display: flex;
     flex-direction: column;
@@ -1087,15 +1098,17 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
     margin: auto;
     justify-content: center;
 }
-.search-result .search-head{
-    margin-left: 150px;
+.search-wrapper .search-head{
     display: flex;
     flex-direction: row;
-
+    margin-left: 70px;
 }
-.search-result .search-head q{
+.search-wrapper .search-head q{
     font-style: italic;
     quotes: "\00ab" "\00bb";
+}
+.catalog-content{
+    width: 100%;
 }
 .empty-result-search{
     width: 100%;

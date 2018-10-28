@@ -7,21 +7,42 @@
 # Mod_Rewrite
 <IfModule mod_rewrite.c>
     Options +FollowSymLinks
-#    IndexIgnore */*
+    IndexIgnore */*
 #    # Enable mod_rewrite
     RewriteEngine On
     RewriteBase /
+
+# deal with admin first
+    RewriteCond %{REQUEST_URI} ^/(admin)
+    RewriteRule ^admin/assets/(.*)$ backend/web/assets/$1 [L]
+    RewriteRule ^admin/css/(.*)$ backend/web/css/$1 [L]
+    RewriteRule ^admin/adminCss/(.*)$ backend/web/adminCss/$1 [L]
+
+    RewriteCond %{REQUEST_URI} !^/backend/web/(assets|css)/
+    RewriteCond %{REQUEST_URI} ^/(admin)
+    RewriteRule ^.*$ backend/web/index.php [L]
+
+    RewriteCond %{REQUEST_URI} ^/(assets|jsShop|js|cssShop|css|img)
+    RewriteRule ^assets/(.*)$ frontend/web/assets/$1 [L]
+    RewriteRule ^cssShop/(.*)$ frontend/web/cssShop/$1 [L]
+    RewriteRule ^css/(.*)$ frontend/web/css/$1 [L]
+    RewriteRule ^js/(.*)$ frontend/web/js/$1 [L]
+    RewriteRule ^jsShop/(.*)$ frontend/web/jsShop/$1 [L]
+    RewriteRule ^img/(.*)$ frontend/web/img/$1 [L]
+    RewriteRule ^(.*)$ frontend/web/$1 [L]
+
+    RewriteCond %{REQUEST_URI} !^/(frontend|backend)/web/(assets|css|js|jsShop|cssShop)/
+    RewriteCond %{REQUEST_URI} !index.php
+    RewriteCond %{REQUEST_FILENAME} !-f [OR]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^.*$ frontend/web/index.php
+# /deal with admin first
 
     #no end slesh
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} !^(.+)/$ [NC]
     RewriteRule ^(.+)$ $1/ [R=301]
-
-    # Backend redirect
-    # Если backend запрос
-    RewriteCond %{REQUEST_URI} ^/admin
-    RewriteRule ^admin(.*)$ /backend/web/$1 [L]
 
     # Statics redirect
 #    RewriteCond %{REQUEST_URI} ^/phpm
@@ -31,8 +52,4 @@
     RewriteCond %{REQUEST_URI} ^/frontend$
     RewriteRule ^(.+)$ /frontend/web/shop/index [L]
 
-    # все не существующие url адреса направляем на /frontend
-#    RewriteCond %{REQUEST_FILENAME} !-d [OR]
-#    RewriteCond %{REQUEST_FILENAME} !-f
-#    RewriteRule ^(.*)$ /frontend/web
 </IfModule>

@@ -15,7 +15,7 @@ return [
     'controllerNamespace' => 'frontend\controllers',
     'aliases' => [
         '@backend' => 'project-yii/backend/web',
-        '@front' => 'frontend/web'
+        '@front' => '/frontend/web/',
     ],
     /*'modules' => [
         'debug' => [
@@ -27,6 +27,11 @@ return [
 //        'session' => [
 //            'class' => 'yii\web\DbSession',
 //        ],
+        'request' => [
+            'csrfParam' => '_csrf-frontend',
+            'enableCsrfValidation' => false,
+            'baseUrl' => '',
+        ],
         'view' => [
             'class' => 'yii\web\View',
             'renderers' => [
@@ -45,11 +50,6 @@ return [
                     'uses' => ['yii\bootstrap'],
                 ],
             ],
-        ],
-        'request' => [
-            'csrfParam' => '_csrf-frontend',
-            'enableCsrfValidation' => false,
-//            'baseUrl' => 'frontend/web'
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -80,7 +80,7 @@ return [
 //            'defaultRoute' => 'shop/index',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'enableStrictParsing' => true,
+            'enableStrictParsing' => false,
             'suffix' => '/',
 //            'class' => 'yii\web\UrlManager',
             'rules' => [

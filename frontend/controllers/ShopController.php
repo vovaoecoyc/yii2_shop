@@ -100,7 +100,7 @@ class ShopController extends \yii\web\Controller
             ->orWhere(['like', 'name', ' '.$q]);
         $pages = new Pagination([
             'totalCount' => $query->count(),
-            'pageSize'   => 3,
+            'pageSize'   => 6,
             'forcePageParam' => false, //включает чпу
             'pageSizeParam'  => false //убирает из параметров url параметр per-page
         ]);

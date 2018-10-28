@@ -7,7 +7,7 @@ use yii\helpers\Url;
 <? foreach ($products as $prod) { ?>
 <div class="single-product swiper-slide">
     <div class="product-f-image">
-        <div class="related-item-image slider-image" style="background-image: url('<?= Yii::getAlias("@web/img/catalog/$prod->image")?>');">
+        <div class="related-item-image slider-image" style="background-image: url('<?= Yii::getAlias("@front/img/catalog/$prod->image")?>');">
         </div>
         <div data-id="<?= $prod->id?>" class="product-hover">
             <a href="<?= Url::to(['cart/add', 'id' => $prod->id, 'quantity' => 1]) ?>" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Добавить в корзину</a>

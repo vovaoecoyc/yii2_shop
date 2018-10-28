@@ -1,0 +1,20 @@
+/* custom styles for Backend */
+table.order-items{
+    text-align: center;
+    margin: auto;
+}
+table.order-items{
+    max-width: 800px;
+}
+table.order-items tbody td{
+    vertical-align: middle;
+}
+
+.order-items .item-image{
+    width: 150px;
+    height: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+/* / custom styles for Backend */

@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = [
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="product-images">
-                                <div class="product-main-img" style="background-image: url(<?= Yii::getAlias("@web/img/catalog/$product->image")?>);">
+                                <div class="product-main-img" style="background-image: url(<?= Yii::getAlias("@front/img/catalog/$product->image")?>);">
                                 </div>
 
                                 <div class="product-gallery">

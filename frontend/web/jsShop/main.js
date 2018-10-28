@@ -169,7 +169,7 @@ jQuery(document).ready(function($){
     /* костылим отправление формы поиска (формируем url не формой, а urlManager-ом для того, что бы прменялись правила роутов)  */
     $('form#search').on('submit', function(e) {
         e.preventDefault();
-        location.href = $(this).attr('action') + $(this).find('input[name=SEARCH_REQUEST]').val() + '/';
+        location.href = $(this).attr('action') + $(this).find('input[name=q]').val() + '/';
     });
 
     var swiperRelated = new Swiper('.swiper-container', {

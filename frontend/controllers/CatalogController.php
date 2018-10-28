@@ -74,12 +74,4 @@ class CatalogController extends \yii\web\Controller
         }
 
     }
-
-    public function actionTest() {
-        return $this->render('test');
-//        $query         = ShopProducts::find()->all();
-//        return $this->render('test.twig', [
-//            'products' => $query
-//        ]);
-    }
 }

@@ -8,20 +8,26 @@ $params = array_merge(
 
 return [
     'id' => 'app-backend',
+    'name' => 'Интернет-магазин',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
+    'defaultRoute' => 'order/index',
+    'aliases' => [
+        '@front' => '/frontend/web/'
+    ],
 //    'homeUrl' => '/admin',
     'components' => [
         'request' => [
 //            'csrfParam' => '_csrf-backend',
-//            'baseUrl' => 'backend/web/'
+            'baseUrl' => '/admin'
         ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+            //'loginUrl' => ['catalog/index']
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
@@ -44,10 +50,20 @@ return [
 //            'baseUrl' => '/backend/web',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'suffix' => '/',
             'rules' => [
                 '<controller:\w+>' => '<controller>',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+            ],
+        ],
+        'urlManagerFrontend' => [
+            'class' => 'yii\web\urlManager',
+            'baseUrl' => '',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                'catalog/<cat:[a-z0-9_\-]+>/<prod:[a-z0-9_\-]+>' => 'catalog/product',
             ],
         ],
 
