@@ -3,11 +3,13 @@
 //namespace app\controllers;
 namespace frontend\controllers;
 
+use frontend\models\ShopMainSlider;
 use Yii;
 use app\models\UserForm;
 use app\models\UserSendForms;
 use frontend\models\ShopProducts;
 use yii\data\Pagination;
+use common\models\ShopBrands;
 
 class ShopController extends \yii\web\Controller
 {
@@ -18,8 +20,14 @@ class ShopController extends \yii\web\Controller
      */
     public function actionIndex()
     {
+        $slides = ShopMainSlider::find()->all();
         //$menuPoints = Yii::$app->view->params['menuPoints'];
-        return $this->render('index');
+        $this->setMetaTags(Yii::$app->params['defaultTitle'], Yii::$app->params['defaultKeywords'], Yii::$app->params['defaultDescription']);
+        $latest_product = Yii::$app->request->cookies->get('latestProduct') ?
+                            Yii::$app->subcomponent->cookiesValidationCheck(Yii::$app->request->cookies->get('latestProduct'))
+                            : null;
+        $brands = ShopBrands::find()->all();
+        return $this->render('index', compact('slides', 'latest_product', 'brands'));
     }
 
     /**
@@ -28,30 +36,6 @@ class ShopController extends \yii\web\Controller
     public function actionShop()
     {
         return $this->render('shop');
-    }
-
-    /**
-     * Cart page
-     */
-    public function actionCart()
-    {
-        return $this->render('cart');
-    }
-
-    /**
-     * CheckOut page
-     */
-    public function actionCheckout()
-    {
-        return $this->render('checkout');
-    }
-
-    /**
-     * Single-product page
-     */
-    public function actionSingleProduct()
-    {
-        return $this->render('single-product');
     }
 
     /**
@@ -113,5 +97,23 @@ class ShopController extends \yii\web\Controller
                 'search_products' => $search_products
             ]
         );
+    }
+
+    protected function setMetaTags($title = null, $keywords = null, $description = null) {
+        if ($title !== null) {
+            $this->view->title = $title;
+        }
+        if ($keywords !== null) {
+            $this->view->registerMetaTag([
+                'name'    => 'keywords',
+                'content' => $keywords
+            ]);
+        }
+        if ($description !== null) {
+            $this->view->registerMetaTag([
+                'name'    => 'description',
+                'content' => $description
+            ]);
+        }
     }
 }

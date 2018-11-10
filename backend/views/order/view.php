@@ -8,7 +8,7 @@ use yii\helpers\Url;
 /* @var $model backend\models\Orders */
 
 $this->title = Yii::$app->params['order'] . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Orders', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Заказы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="orders-view">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Обновить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -67,12 +67,12 @@ $this->params['breadcrumbs'][] = $this->title;
         <? foreach ($model->orderList as $item) { ?>
             <tr>
                 <td class="col-md-2">
-                    <div class="item-image" style="background-image: url(<?= Yii::getAlias('@front/img/catalog/' . $item->product->image) ?>)"></div>
+                    <div class="item-image" style="background-image: url(<?= Yii::getAlias('@front/img/catalog/' . $item->product->getImage()->filePath) ?>)"></div>
                 </td>
                 <td class="col-md-6">
                     <div class="item-name">
                         <h4><a href="<?= Yii::$app->urlManagerFrontend->createUrl(['catalog/product', 'cat' => $item->product->categories->cat_name_translit, 'prod' => $item->product->name_translit]) . '/' ?>">
-                                <?= $item->prod_name ?></a>
+                                <?= $item->prod_name ?>×<?= $item->quantity_item ?></a>
                         </h4>
                     </div>
                 </td>

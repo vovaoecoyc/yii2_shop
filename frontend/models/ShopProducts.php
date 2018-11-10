@@ -18,6 +18,15 @@ use yii\db\Command;
 class ShopProducts extends ActiveRecord
 {
 
+    public function behaviors()
+    {
+        return [
+            'image' => [
+                'class' => 'rico\yii2images\behaviors\ImageBehave',
+            ]
+        ];
+    }
+
     public function getCategories() {
         return $this->hasOne(ShopCategories::class, ['id' => 'category_id']);
     }

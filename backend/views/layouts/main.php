@@ -39,6 +39,9 @@ AppAsset::register($this);
     if (!Yii::$app->user->isGuest) {
         $menuItems = [
             ['label' => 'Заказы', 'url' => ['/']],
+            ['label' => 'Категории', 'url' => ['categories/index']],
+            ['label' => 'Товары', 'url' => ['products/index']],
+            ['label' => 'Бренды', 'url' => ['brands/index']]
         ];
     }
     if (Yii::$app->user->isGuest) {
@@ -62,6 +65,10 @@ AppAsset::register($this);
 
     <div class="container">
         <?= Breadcrumbs::widget([
+            'homeLink' => [
+                'label' => 'Главная',
+                'url'   => Yii::$app->homeUrl
+            ],
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>

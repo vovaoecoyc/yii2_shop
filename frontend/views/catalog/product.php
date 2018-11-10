@@ -32,17 +32,6 @@ $this->params['breadcrumbs'][] = [
                     <h2 class="sidebar-title">Катеории продуктов</h2>
                     <?= CatalogMenuWidget::widget() ?>
                 </div>
-
-                <div class="single-sidebar">
-                    <h2 class="sidebar-title">Recent Posts</h2>
-                    <ul>
-                        <li><a href="">Sony Smart TV - 2015</a></li>
-                        <li><a href="">Sony Smart TV - 2015</a></li>
-                        <li><a href="">Sony Smart TV - 2015</a></li>
-                        <li><a href="">Sony Smart TV - 2015</a></li>
-                        <li><a href="">Sony Smart TV - 2015</a></li>
-                    </ul>
-                </div>
             </div>
 
             <div class="col-md-8">
@@ -63,15 +52,14 @@ $this->params['breadcrumbs'][] = [
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="product-images">
-                                <div class="product-main-img" style="background-image: url(<?= Yii::getAlias("@front/img/catalog/$product->image")?>);">
+                                <div class="product-main-img" style="background-image: url(<?= Yii::getAlias("@front/img/catalog/{$product->getImage()->filePath}")?>);">
                                 </div>
-
-                                <div class="product-gallery">
-                                    <img src="img/product-thumb-1.jpg" alt="">
-                                    <img src="img/product-thumb-2.jpg" alt="">
-                                    <img src="img/product-thumb-3.jpg" alt="">
-                                    <img src="img/product-thumb-4.jpg" alt="">
-                                </div>
+<!--                                <div class="product-gallery">-->
+<!--                                    <img src="--><?//= Yii::getAlias("@front/img/product-thumb-1.jpg") ?><!--" alt="">-->
+<!--                                    <img src="--><?//= Yii::getAlias("@front/img/product-thumb-2.jpg") ?><!--" alt="">-->
+<!--                                    <img src="--><?//= Yii::getAlias("@front/img/product-thumb-3.jpg") ?><!--" alt="">-->
+<!--                                    <img src="--><?//= Yii::getAlias("@front/img/product-thumb-4.jpg") ?><!--" alt="">-->
+<!--                                </div>-->
                             </div>
                         </div>
 

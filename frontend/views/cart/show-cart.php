@@ -95,7 +95,7 @@ $this->title = "Корзина";
                                         </td>
 
                                         <td class="product-thumbnail">
-                                            <a href="<?= Url::to(['catalog/product', 'prod' => $item['name_prod_tr'], 'cat' => $item['name_cat_tr']]) ?>"><img width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="<?= Yii::getAlias("@front/img/catalog/".$item['image'])?>"></a>
+                                            <a href="<?= Url::to(['catalog/product', 'prod' => $item['name_prod_tr'], 'cat' => $item['name_cat_tr']]) ?>"><img width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="<?= Yii::getAlias("@front/img/catalog/".$item['image']->filePath)?>"></a>
                                         </td>
 
                                         <td class="product-name">

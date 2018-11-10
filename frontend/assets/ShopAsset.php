@@ -7,7 +7,7 @@ class ShopAsset extends AssetBundle{
     public $baseUrl = '@web';
     public $css = [
         'cssShop/style.css',
-        'css/style.css',
+//        'css/style.css',
         'cssShop/responsive.css',
         'cssShop/owl.carousel.css',
         'cssShop/widgets/style.css',

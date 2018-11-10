@@ -43,7 +43,7 @@ $this->beginPage();
                             '<i class="fa fa-heart"></i>',
                             ['label' => 'Предпочтения', 'url' => ['']],
                             '<i class="fa fa-user"></i>',
-                            ['label' => 'Корзина',      'url' => [Yii::$app->urlManager->createUrl(['frontend/web/cart'])]],
+                            ['label' => 'Корзина',      'url' => [Url::to(['cart/show-cart'])]],
                         ];
                         if(Yii::$app->user->isGuest){
                             $menuItems[] = ['label' => 'Зарегистрироваться', 'url' => [Yii::$app->urlManagerBackend->createUrl([''])]];
@@ -162,7 +162,7 @@ $this->beginPage();
                 <div class="row">
                     <div class="col-md-8">
                         <div class="copyright">
-                            <p>&copy; 2015 eElectronics. All Rights Reserved. Coded with <i class="fa fa-heart"></i> by <a href="http://wpexpand.com" target="_blank">WP Expand</a></p>
+                            <p>&copy; 2018 eAuto. Все права защищены. Сделано vovaoecoyc@yandex.ru</p>
                         </div>
                     </div>
 

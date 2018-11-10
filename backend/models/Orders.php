@@ -43,6 +43,15 @@ class Orders extends \yii\db\ActiveRecord
         return $this->hasMany(ShopOrderList::class, ['order_id' => 'id']);
     }
 
+    /* удаляем связанные данные из таблиц shop_orders и shop_order_list */
+    public function beforeDelete() {
+        parent::beforeDelete();
+        foreach ( $this->orderList as $item ) {
+            $item->delete();
+        }
+        return true;
+    }
+
     /**
      * {@inheritdoc}
      */

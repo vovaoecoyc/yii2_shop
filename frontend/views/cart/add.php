@@ -12,7 +12,7 @@ use yii\helpers\Url;
         <div class="title-modal-cart">
             <?= $product->name?>
         </div>
-        <div class="image-modal-cart" style="background-image: url(<?= Yii::getAlias("@front/img/catalog/$product->image") ?>);"></div>
+        <div class="image-modal-cart" style="background-image: url(<?= Yii::getAlias("@front/img/catalog/{$product->getImage()->filePath}") ?>);"></div>
     </div>
     <div class="content-cart-modal">
         <div class="modal-price-block">

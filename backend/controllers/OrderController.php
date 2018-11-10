@@ -94,6 +94,8 @@ class OrderController extends Controller
     public function actionCreate()
     {
         $model = new Orders();
+        $delivery = ShopDelivery::find()->all();
+        $paysystem = ShopPaySystem::find()->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -101,6 +103,8 @@ class OrderController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'delivery' => $delivery,
+            'paysystem' => $paysystem
         ]);
     }
 

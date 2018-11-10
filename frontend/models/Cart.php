@@ -15,10 +15,11 @@ class Cart extends ActiveRecord
 
     public function addToCart($product, $quantity = 1) {
         if (!isset($_SESSION['cart'][$product->id])) {
+            //$image = $
             $_SESSION['cart'][$product->id] = [
                 'id'           => $product->id,
                 'name'         => $product->name,
-                'image'        => $product->image,
+                'image'        => $product->getImage(),
                 'price'        => $product->price,
                 'name_prod_tr' => $product->name_translit,
                 'name_cat_tr'  => $product->categories->cat_name_translit,

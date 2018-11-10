@@ -7,7 +7,7 @@ use yii\helpers\Url;
 <? foreach ($products as $prod) { ?>
 <div class="single-product swiper-slide">
     <div class="product-f-image">
-        <div class="related-item-image slider-image" style="background-image: url('<?= Yii::getAlias("@front/img/catalog/$prod->image")?>');">
+        <div class="related-item-image slider-image" style="background-image: url('<?= Yii::getAlias("@front/img/catalog/{$prod->getImage()->filePath}")?>');">
         </div>
         <div data-id="<?= $prod->id?>" class="product-hover">
             <a href="<?= Url::to(['cart/add', 'id' => $prod->id, 'quantity' => 1]) ?>" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Добавить в корзину</a>
@@ -15,10 +15,10 @@ use yii\helpers\Url;
         </div>
     </div>
 
-    <h2><a href=""><?= $prod->name ?></a></h2>
+    <h2><a href="<?= Url::to(['catalog/product', 'cat' => $prod->categories->cat_name_translit, 'prod' => $prod->name_translit])?>"><?= $prod->name ?></a></h2>
 
     <div class="product-carousel-price">
-        <ins><?= $prod->price?>&nbsp;&#8381;</ins>
+        <ins>&#8381;<?= $prod->price?></ins>
 <!--            <del>$800.00</del>-->
     </div>
 </div>

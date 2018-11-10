@@ -14,7 +14,7 @@ use yii\widgets\LinkPager;
     <? } ?>
         <div class="col-md-4 col-sm-6">
             <div class="single-shop-product">
-                <div class="product-upper" style="background-image: url(<?= Yii::getAlias('@front/img/catalog/') . $prod['image']?>);">
+                <div class="product-upper" style="background-image: url(<?= Yii::getAlias('@front/img/catalog/') . $prod->getImage()->filePath ?>);">
                     <a class="src-image" href="<?= Url::to([
                         'catalog/product',
                         'prod' => $prod['name_translit'],
@@ -41,7 +41,7 @@ use yii\widgets\LinkPager;
             </div>
         </div>
     <? $i++; ?>
-    <? if ($i % 3 === 0) { ?>
+    <? if ( ($i % 3 === 0) || (count($products) === $i) ) { ?>
         </div>
     <? } ?>
 <? } ?>

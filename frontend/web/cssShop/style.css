@@ -1,3 +1,6 @@
+body{
+    overflow-x: hidden;
+}
 .floatleft { float: left }
 .floatright { float: right }
 .alignleft {
@@ -197,9 +200,9 @@ z-index: 9;
   top: 0;
   width: 100%;
 }
-.slide-one {background-image: url(img/slide-1.jpg)}
-.slide-two {background-image: url(img/slide-2.jpg)}
-.slide-three {background-image: url(img/slide-3.jpg)}
+.slide-one {background-image: url(/frontend/web/img/slide-1.jpg)}
+.slide-two {background-image: url(/frontend/web/img/slide-2.jpg)}
+.slide-three {background-image: url(/frontend/web/img/slide-3.jpg)}
 .slide-text {color: #fff;font-size: 18px;font-weight: 200}
 .slide-text h2 {
   font-size: 45px;font-weight: 200
@@ -361,7 +364,7 @@ z-index: 9;
   margin-left: 15px;
   padding: 1px 10px;
 }
-.latest-product .owl-nav div:hover, .brand-wrapper .owl-nav div:hover, .related-products-wrapper .owl-nav div:hover {color: #222;border-color: #222}
+.latest-product .owl-nav div:hover, .brand-wrapper .owl-prev:hover,.brand-wrapper .owl-next:hover, .related-products-wrapper .owl-nav div:hover {color: #222;border-color: #222}
 .brand-list {padding-top: 40px;}
 .brand-list .owl-nav {
   position: absolute;
@@ -1053,7 +1056,7 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
     height: 335px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
 }
 .catalog-wrapper .src-image{
     position: absolute;
@@ -1223,7 +1226,7 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
     margin: auto;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 .modal-price-block, .modal-count-block{
     display: flex;
@@ -1275,3 +1278,19 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
     text-decoration: none;
 }
 /* ./ */
+/* start main page */
+.navigation-inactive{
+    cursor: default !important;
+    opacity: 0.5;
+}
+.navigation-inactive.owl-prev:hover, .navigation-inactive.owl-next:hover{
+    border: 1px solid #1abc9c !important;
+    color: #1abc9c !important;
+}
+.latest-product{
+    margin-top: 50px;
+}
+.latest-product .product-f-image img{
+    height: 250px;
+}
+/* /end */

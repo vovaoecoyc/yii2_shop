@@ -49,7 +49,7 @@ class OrderList extends \yii\db\ActiveRecord
     public function saveOrderList($cartItems =[], $order_id) {
         if (!($order_id === null)) {
             foreach ($cartItems as $key => $item) {
-                $orderList = new $this();
+                $orderList = new self();
                 $orderList->prod_name     = $item['name'];
                 $orderList->prod_id       = $item['id'];
                 $orderList->quantity_item = $item['quantity'];
@@ -57,6 +57,7 @@ class OrderList extends \yii\db\ActiveRecord
                 $orderList->price         = $item['price'];
                 $orderList->order_id      = $order_id;
                 $orderList->save();
+                unset($item);
             }
         }
     }

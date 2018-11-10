@@ -31,7 +31,7 @@ class OrderController extends \yii\web\Controller
             $order->delivery_id  = Yii::$app->request->post('ShopDelivery')['id'];
             $order->paysystem_id = Yii::$app->request->post('ShopPaysystem')['id'];
             $order->quantity     = $cartItems['cart.quantity'];
-            $order->summ         = $cartItems['cart.summ'];
+            $order->summ         = (float)$cartItems['cart.summ'];
             $order->save();
             $orderList->saveOrderList($cartItems['cart'], $order->id);
             $cart->clearCart();

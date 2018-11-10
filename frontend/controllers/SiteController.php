@@ -72,9 +72,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $test = "Test variable";
         return $this->render('index',[
-            "test_var" => $test
+
         ]);
     }
 
@@ -215,4 +214,5 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
 }
